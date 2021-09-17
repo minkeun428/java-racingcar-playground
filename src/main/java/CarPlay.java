@@ -1,19 +1,29 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CarPlay {
-
     private final List<Car> cars = new ArrayList<>();
 
     public CarPlay(String names) {
         List<String> carList = Arrays.asList(names.split(","));
-
         for (String s : carList) {
-            cars.add(new Car(s, 0));   //car 객체 생성
+            cars.add(new Car(s, 0));
         }
     }
 
-    //전진 해보자.
-    public void runs() {
+    public CarPlay() {}
+
+    public void addCar(Car car) {
+        this.cars.add(car);
+    }
+
+    public void runs(int times) {
+        for (int i = 0; i < times; i++) {
+            callCarRun();
+        }
+    }
+
+    public void callCarRun() {
         for (Car car : cars) {
             car.run();
             car.result();
@@ -21,13 +31,14 @@ public class CarPlay {
         System.out.println();
     }
 
-    public void checkMax() {
-        Car CarMaxLocation = cars.stream()
-                .distinct()
-                .max(Comparator.comparing(Car::getLocation))
-                .orElseThrow(NoSuchElementException::new);
+    public List<Car> getWinners() {
+        int maxLocation = cars.stream().mapToInt(c -> c.getLocation()).max().orElse(0);
+        return cars.stream().filter(c -> c.getLocation() == maxLocation)
+                        .collect(Collectors.toList());
 
-        System.out.println(CarMaxLocation.getName() + "가 최종 우승했습니다.");
     }
 
+    public void callWinners() {
+        System.out.println(String.join(",", getWinners().stream().map(c -> c.getName()).collect(Collectors.toList()) + "최종 우승했습니다."));
+    }
 }

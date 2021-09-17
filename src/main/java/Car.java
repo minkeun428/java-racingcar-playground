@@ -1,7 +1,7 @@
 import java.util.Random;
 
-public class Car implements CarInterface {
-
+public class Car {
+    private static final int MAX_LENGTH = 5;
     private String name;
     private int location;
 
@@ -13,10 +13,6 @@ public class Car implements CarInterface {
         this.location = location;
     }
 
-    public boolean lengthCheck(String name) {
-        return name.length() > 5;
-    }
-
     public int getLocation() {
         return location;
     }
@@ -25,17 +21,18 @@ public class Car implements CarInterface {
         return name;
     }
 
-    @Override
-    public void run() {
-        Random random = new Random();
-        this.location = this.location += random.nextInt(10);
+    public boolean lengthCheck(String name) {
+        return name.length() > MAX_LENGTH;
     }
 
-    @Override
+    public void run() {
+        Random random = new Random();
+        this.location += random.nextInt(10);
+    }
+
     public void result() {
         System.out.print(name + " : ");
         System.out.print(location);
         System.out.println();
     }
-
 }
