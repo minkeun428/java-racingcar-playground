@@ -1,38 +1,38 @@
-import java.util.Random;
-
 public class Car {
-    private static final int MAX_LENGTH = 5;
-    private String name;
-    private int location;
+    private final String name;
+    private int position;
 
-    public Car(String name, int location) {
-        if(lengthCheck(name)) {
-            throw new IllegalArgumentException("자동차 이름은 5자를 초과하면 안돼요.");
-        }
+    public Car(String name, int position) {
         this.name = name;
-        this.location = location;
+        this.position = position;
     }
 
-    public int getLocation() {
-        return location;
+    public String isName() {
+        return this.name;
     }
 
-    public String getName() {
-        return name;
+    public int isPosition() {
+        return this.position;
     }
 
-    public boolean lengthCheck(String name) {
-        return name.length() > MAX_LENGTH;
+    public void move() {
+        RandomNumber randomNumber = new RandomNumber();
+        this.position += randomNumber.isNumber();
     }
 
-    public void run() {
-        Random random = new Random();
-        this.location += random.nextInt(10);
+    public boolean validateNameLength(String name) {
+        if(name.isEmpty()) {
+            throw new NullPointerException("자동차 이름을 입력해주세요.");
+        }
+        if(name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
+        }
+        return true;
     }
 
-    public void result() {
-        System.out.print(name + " : ");
-        System.out.print(location);
-        System.out.println();
+    public void view() {
+        CarView carView = new CarView();
+        System.out.println(name + " : " + carView.drawCarPosition(position));
     }
+
 }
