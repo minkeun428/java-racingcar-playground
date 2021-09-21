@@ -21,5 +21,8 @@ public class Play {
             }
             System.out.println();
         }
+
+        CarView carView = new CarView();
+        System.out.println(carView.callFinalWinners(carPlay.getWinners()));
     }
 }
