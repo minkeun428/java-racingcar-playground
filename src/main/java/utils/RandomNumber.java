@@ -2,6 +2,8 @@ import java.util.Random;
 
 public class RandomNumber {
     private final int number;
+    private static final int MIN = 0;
+    private static final int MAX = 9;
 
     public RandomNumber() {
         Random random = new Random();
@@ -13,7 +15,7 @@ public class RandomNumber {
     }
 
     public int validateRandomNumber(int number) {
-        if(number < 0 && number > 9) {
+        if(number < MIN && number > MAX) {
             throw new IllegalArgumentException("잘못된 움직임 값입니다.");
         }
         return number;

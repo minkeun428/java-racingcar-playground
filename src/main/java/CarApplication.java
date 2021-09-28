@@ -10,8 +10,8 @@ public class Play {
         System.out.println("시도할 횟수는 몇회인가요?");
         int playTime = scanner.nextInt();
 
-        CarPlay carPlay = new CarPlay();
-        List<Car> cars = carPlay.createNewCar(carList);
+        CarRacing carRacing = new CarRacing();
+        List<Car> cars = carRacing.createNewCar(carList);
 
         System.out.println("실행 결과");
         for (int i = 0; i < playTime; i++) {
@@ -23,6 +23,6 @@ public class Play {
         }
 
         CarView carView = new CarView();
-        System.out.println(carView.callFinalWinners(carPlay.getWinners()));
+        System.out.println(carView.callFinalWinners(carRacing.getWinners()));
     }
 }

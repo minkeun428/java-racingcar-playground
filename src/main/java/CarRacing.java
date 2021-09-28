@@ -15,8 +15,14 @@ public class CarPlay {
     }
 
     public List<Car> getWinners() {
-        int maxPosition = carList.stream().mapToInt(car -> car.isPosition()).max().orElse(0);
-        return carList.stream().filter(car -> car.isPosition() == maxPosition).collect(Collectors.toList());
+        int maxPosition = carList.stream()
+                .mapToInt(car -> car.isPosition())
+                .max()
+                .orElse(0);
+
+        return carList.stream()
+                .filter(car -> car.isPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
 }
