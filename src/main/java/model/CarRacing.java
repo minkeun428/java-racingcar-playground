@@ -1,9 +1,13 @@
+package model;
+
+import model.Car;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarPlay {
+public class CarRacing {
     private final List<Car> carList = new ArrayList<>();
 
     public List<Car> createNewCar(String nameList) {
@@ -16,12 +20,12 @@ public class CarPlay {
 
     public List<Car> getWinners() {
         int maxPosition = carList.stream()
-                .mapToInt(car -> car.isPosition())
+                .mapToInt(car -> car.getPosition())
                 .max()
                 .orElse(0);
 
         return carList.stream()
-                .filter(car -> car.isPosition() == maxPosition)
+                .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
 

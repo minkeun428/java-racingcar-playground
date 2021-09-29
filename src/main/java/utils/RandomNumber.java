@@ -1,3 +1,5 @@
+package utils;
+
 import java.util.Random;
 
 public class RandomNumber {
@@ -10,7 +12,7 @@ public class RandomNumber {
         this.number = validateRandomNumber(random.nextInt(10));
     }
 
-    public int isNumber() {
+    public int getNumber() {
         return this.number;
     }
 
