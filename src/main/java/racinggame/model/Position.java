@@ -1,2 +1,4 @@
-package racinggame.model;public class Position {
+package racinggame.model;
+
+public class Position {
 }

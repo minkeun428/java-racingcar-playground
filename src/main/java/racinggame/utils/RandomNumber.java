@@ -1,2 +1,4 @@
-package racinggame.utils;public class RandomNumber {
+package racinggame.utils;
+
+public class RandomNumber {
 }

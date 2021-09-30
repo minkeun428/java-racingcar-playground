@@ -1,7 +1,6 @@
-import java.util.List;
-import java.util.Scanner;
+package racinggame;
 
-public class CarApplication {
+public class RacingApplication {
     public static void main(String[] args) {
 
     }
