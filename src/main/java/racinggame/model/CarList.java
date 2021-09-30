@@ -4,10 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    List<Car> carList = new ArrayList<>();
+    private List<Car> carList;
 
-    public CarList(List<String> list) {
+    public CarList(String cars) {
+        carList = new ArrayList();
+        String[] carNameArray = cars.split(",");
 
-        this.carList = carList;
+        for (int i = 0; i < carNameArray.length; i++) {
+            carList.add(createCars(carNameArray[i]));
+        }
+    }
+
+    private Car createCars(String carName) {
+        return new Car(carName);
+    }
+
+    public List<Car> getCarList() {
+        return this.carList;
     }
 }

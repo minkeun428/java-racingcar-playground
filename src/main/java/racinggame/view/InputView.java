@@ -1,5 +1,10 @@
 package racinggame.view;
 
+import racinggame.model.Car;
+import racinggame.model.CarList;
+import racinggame.racing.Race;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -12,17 +17,17 @@ public class InputView {
         scanner = new Scanner(System.in);
     }
 
-    public void createInPutCarNameView() {
+    public CarList createInPutCarNameView() {
         System.out.println(INPUT_CAR_NAME_VIEW);
-        scanner.next();
+        return new CarList(scanner.next());
     }
 
-    private void createInPutPlayTimeView() {
+    public int createInPutPlayTimeView() {
         System.out.println(INPUT_PLAY_TIME_VIEW);
-        scanner.nextInt();
+        return scanner.nextInt();
     }
 
-    private void createRunResult() {
+    public void createRunResult() {
         System.out.println(RUN_RESULT);
     }
 

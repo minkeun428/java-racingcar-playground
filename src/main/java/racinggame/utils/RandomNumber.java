@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class RandomNumber {
     private int number;
+    private Random random = new Random();
 
     public RandomNumber() {
-        Random random = new Random();
         createRandomNumber(random);
     }
 
