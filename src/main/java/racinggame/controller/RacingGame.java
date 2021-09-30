@@ -3,6 +3,7 @@ package racinggame.controller;
 import racinggame.model.CarList;
 import racinggame.racing.Race;
 import racinggame.view.InputView;
+import racinggame.view.OutputView;
 
 
 public class RacingGame {
@@ -23,6 +24,8 @@ public class RacingGame {
         }
 
         //우승자 가려내기
+        OutputView outputView = new OutputView();
+        outputView.createRunResult();
 
     }
 }
