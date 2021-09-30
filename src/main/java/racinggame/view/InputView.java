@@ -1,4 +1,29 @@
 package racinggame.view;
 
+import java.util.Scanner;
+
 public class InputView {
+    private final static String INPUT_CAR_NAME_VIEW = "경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).";
+    private final static String INPUT_PLAY_TIME_VIEW = "시도할 횟수는 몇회인가요?";
+    private final static String RUN_RESULT = "실행 결과";
+    private final Scanner scanner;
+
+    public InputView() {
+        scanner = new Scanner(System.in);
+    }
+
+    public void createInPutCarNameView() {
+        System.out.println(INPUT_CAR_NAME_VIEW);
+        scanner.next();
+    }
+
+    private void createInPutPlayTimeView() {
+        System.out.println(INPUT_PLAY_TIME_VIEW);
+        scanner.nextInt();
+    }
+
+    private void createRunResult() {
+        System.out.println(RUN_RESULT);
+    }
+
 }
