@@ -3,18 +3,16 @@ package racinggame.utils;
 import java.util.Random;
 
 public class RandomNumber {
-    private int number;
-    private Random random = new Random();
+    private final int RANDOM_RANGE;
+    private Random random;
 
     public RandomNumber() {
-        createRandomNumber(random);
+        this.random = new Random();
+        this.RANDOM_RANGE = 10;
+        createRandomNumber();
     }
 
-    private void createRandomNumber(Random random) {
-        this.number = random.nextInt(10);
-    }
-
-    public int getNumber() {
-        return this.number;
+    public int createRandomNumber() {
+        return random.nextInt(RANDOM_RANGE);
     }
 }

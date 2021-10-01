@@ -3,7 +3,6 @@ package racinggame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racinggame.model.Car;
-import racinggame.utils.RandomNumber;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,13 +16,4 @@ public class CarTest {
         assertThat(testName).isEqualTo(car.getName());
     }
 
-    @Test
-    @DisplayName("자동차가 달린다.")
-    void createCarListByString() {
-        final String testName = "audi";
-        RandomNumber runNumber = new RandomNumber();
-        Car car = new Car(testName, runNumber.getNumber());
-
-        assertThat(car.getPosition()).isEqualTo(runNumber.getNumber());
-    }
 }

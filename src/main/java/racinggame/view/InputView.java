@@ -23,4 +23,7 @@ public class InputView {
         return scanner.nextInt();
     }
 
+    public void closeScanner() {
+        scanner.close();
+    }
 }

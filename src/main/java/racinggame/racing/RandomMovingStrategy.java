@@ -1,11 +1,11 @@
 package racinggame.racing;
 
-import java.util.Random;
+import racinggame.utils.RandomNumber;
 
 public class RandomMovingStrategy implements MovingStrategy {
 
     @Override
     public int move() {
-        return new Random().nextInt(10);
+        return new RandomNumber().createRandomNumber();
     }
 }
