@@ -2,5 +2,5 @@ package racinggame.racing;
 
 @FunctionalInterface
 public interface MovingStrategy {
-    int move();
+    boolean movable();
 }

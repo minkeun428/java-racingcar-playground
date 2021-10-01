@@ -16,7 +16,7 @@ public class Race {
 
     public void run(List<Car> cars) {
         for (Car car : cars) {
-            car.move(new RandomMovingStrategy());
+            car.move(RandomMovingStrategy.getInstance());
             outputView.getCarNameAndPosition(car.getName(), car.getPosition());
         }
     }
@@ -29,7 +29,7 @@ public class Race {
 
         outputView.printRaceResult(
                 carList.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .collect(Collectors.toList()));
+                        .filter(car -> car.getPosition() == maxPosition)
+                        .collect(Collectors.toList()));
     }
 }

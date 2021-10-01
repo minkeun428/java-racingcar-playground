@@ -1,21 +1,26 @@
 package racinggame.racing;
 
-
 import racinggame.utils.RandomNumber;
-
-import java.util.Random;
 
 
 public class RandomMovingStrategy implements MovingStrategy {
-    private final int RANDOM_RANGE = 10;
-    private final Random random;
+    private static final int MIN_LIMIT = 3;
+    private final RandomNumber randomNumber;
 
-    RandomMovingStrategy() {
-        this.random = RandomNumber.createRandomNumber();
+    private RandomMovingStrategy() {
+        this.randomNumber = RandomNumber.getInstance();
+    }
+
+    private static class LazyHolder {
+        static final RandomMovingStrategy INSTANCE = new RandomMovingStrategy();
+    }
+
+    public static RandomMovingStrategy getInstance() {
+        return LazyHolder.INSTANCE;
     }
 
     @Override
-    public int move() {
-        return random.nextInt(RANDOM_RANGE);
+    public boolean movable() {
+        return randomNumber.createRandomNumber() > MIN_LIMIT;
     }
 }

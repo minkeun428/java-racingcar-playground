@@ -12,13 +12,12 @@ public class Car {
     }
 
     public void move(MovingStrategy movingStrategy) {
-        this.position += movingStrategy.move();
+        if (movingStrategy.movable()) {
+            this.position++;
+        }
     }
 
     public void validate(String name) {
-        if(name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
-        }
         if(name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
         }
