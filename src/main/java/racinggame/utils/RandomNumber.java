@@ -1,18 +1,17 @@
 package racinggame.utils;
 
+
 import java.util.Random;
 
 public class RandomNumber {
-    private final int RANDOM_RANGE;
-    private Random random;
+    private static Random random = null;
 
-    public RandomNumber() {
-        this.random = new Random();
-        this.RANDOM_RANGE = 10;
-        createRandomNumber();
-    }
+    private RandomNumber() {}
 
-    public int createRandomNumber() {
-        return random.nextInt(RANDOM_RANGE);
+    public static Random createRandomNumber() {
+        if (random == null) {
+            random = new Random();
+        }
+        return random;
     }
 }

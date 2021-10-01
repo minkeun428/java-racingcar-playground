@@ -12,12 +12,12 @@ public class RacingGame {
     private CarList carInput;
     private List<Car> cars;
     private int playTime;
-    private Race race;
     private InputView inputView;
+    private Race race;
 
     public RacingGame() {
-        this.race = new Race();
         this.inputView = new InputView();
+        this.race = new Race();
     }
 
     public void play() {
