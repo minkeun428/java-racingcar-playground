@@ -4,39 +4,37 @@ import racinggame.model.Car;
 import racinggame.model.CarList;
 import racinggame.racing.Race;
 import racinggame.view.InputView;
+import racinggame.view.OutputView;
 
 import java.util.List;
 
 
 public class RacingGame {
-    private CarList carInput;
-    private List<Car> cars;
-    private int playTime;
-    private InputView inputView;
-    private Race race;
 
-    public RacingGame() {
-        this.inputView = new InputView();
-        this.race = new Race();
-    }
+    public RacingGame() {}
 
     public void play() {
+        Race race = new Race();
+        InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+
         //자동차 생성 입력 받기
-        this.carInput = inputView.createInPutCarNameView();
+        CarList cars = inputView.createInPutCarNameView();
 
         //플레이 횟수 받기
-        playTime = inputView.createInPutPlayTimeView();
+        int playTime = inputView.createInPutPlayTimeView();
         inputView.closeScanner();
-
-        //경주할 자동차들 받기
-        cars = carInput.getCarList();
 
         //경주 시작하기
         for(int i = 0; i < playTime; i++) {
-            this.race.run(cars);
+            race.run(cars.getCarList());
+            outputView.printCarNameAndPosition(cars.getCarList());
         }
 
         //우승자 가려내기
-        race.createRaceResult(cars);
+        List<Car> winners = race.getRaceResult(cars);
+
+        //우승자 보여주기
+        outputView.printRaceResult(winners);
     }
 }

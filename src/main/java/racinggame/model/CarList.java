@@ -11,15 +11,15 @@ public class CarList {
         String[] carNameArray = cars.split(",");
 
         for (int i = 0; i < carNameArray.length; i++) {
-            carList.add(createCars(carNameArray[i]));
+            carList.add(createCar(carNameArray[i]));
         }
-    }
-
-    private Car createCars(String carName) {
-        return new Car(carName);
     }
 
     public List<Car> getCarList() {
         return this.carList;
+    }
+
+    private Car createCar(String carName) {
+        return new Car(carName);
     }
 }

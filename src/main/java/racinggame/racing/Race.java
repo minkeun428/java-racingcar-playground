@@ -1,35 +1,32 @@
 package racinggame.racing;
 
 import racinggame.model.Car;
-import racinggame.view.OutputView;
+import racinggame.model.CarList;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class Race {
-    private OutputView outputView;
 
-    public Race() {
-        this.outputView = new OutputView();
-    }
+    public Race() {}
 
     public void run(List<Car> cars) {
         for (Car car : cars) {
             car.move(RandomMovingStrategy.getInstance());
-            outputView.getCarNameAndPosition(car.getName(), car.getPosition());
         }
     }
 
-    public void createRaceResult(List<Car> carList) {
-        int maxPosition = carList.stream()
+    public List<Car> getRaceResult(CarList carList) {
+        return carList.getCarList().stream()
+                    .filter(car -> car.getPosition() == getMaxPosition(carList))
+                    .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition(CarList carList) {
+        return carList.getCarList().stream()
                 .mapToInt(car -> car.getPosition())
                 .max()
                 .orElse(0);
-
-        outputView.printRaceResult(
-                carList.stream()
-                        .filter(car -> car.getPosition() == maxPosition)
-                        .collect(Collectors.toList()));
     }
 }

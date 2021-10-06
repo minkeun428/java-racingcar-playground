@@ -1,7 +1,6 @@
 package racinggame.view;
 
 import racinggame.model.Car;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,8 +12,10 @@ public class OutputView {
         System.out.println(RUN_RESULT);
     }
 
-    public void getCarNameAndPosition(String name, int position) {
-        System.out.println(name + " : " + printCarPosition(position));
+    public void printCarNameAndPosition(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + printCarPosition(car.getPosition()));
+        }
     }
 
     public void printRaceResult(List<Car> winners) {
