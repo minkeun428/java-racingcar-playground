@@ -6,6 +6,8 @@ import java.util.List;
 public class CarList {
     private List<Car> carList;
 
+    public CarList() {}
+
     public CarList(String cars) {
         carList = new ArrayList();
         String[] carNameArray = cars.split(",");

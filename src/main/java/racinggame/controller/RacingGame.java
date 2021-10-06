@@ -25,6 +25,7 @@ public class RacingGame {
         int playTime = inputView.createInPutPlayTimeView();
         inputView.closeScanner();
 
+        outputView.printRaceStart();
         //경주 시작하기
         for(int i = 0; i < playTime; i++) {
             race.run(cars.getCarList());

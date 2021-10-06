@@ -8,7 +8,9 @@ public class OutputView {
     private static final String RUN_RESULT = "실행 결과";
     private static final String RESULT_MESSAGE = "가 최종 우승했습니다.";
 
-    public OutputView() {
+    public OutputView() {}
+
+    public void printRaceStart() {
         System.out.println(RUN_RESULT);
     }
 
@@ -16,6 +18,7 @@ public class OutputView {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + printCarPosition(car.getPosition()));
         }
+        System.out.println();
     }
 
     public void printRaceResult(List<Car> winners) {
